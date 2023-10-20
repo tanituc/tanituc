@@ -1,0 +1,36 @@
+/* Estilo básico para la sección de proyectos */
+.projects {
+  width: 100vw;
+}
+
+.projects h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.projects ul {
+  list-style: none;
+  padding: 0;
+}
+
+.projects li {
+  margin-bottom: 2rem;
+}
+
+.projects h3 {
+  font-size: 1.3rem;
+}
+
+.projects p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects a {
+  text-decoration: none;
+  color: #0077cc; /* Color del enlace */
+}
+
+.projects a:hover {
+  text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+}

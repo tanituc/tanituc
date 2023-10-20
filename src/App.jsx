@@ -1,22 +1,25 @@
-import { useState } from 'react'
-import PersonalCard from './components/PersonalCard'; 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Presentation from "./components/Presentation";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <PersonalCard
-        image="ruta-a-tu-imagen.jpg"
-        name="Tu Nombre"
-        age="25"
-        email="cordobaestanislaos@gmail.com"
-      /> 
-    </>
-  )
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Presentation />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

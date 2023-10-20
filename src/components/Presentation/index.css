@@ -1,0 +1,15 @@
+/* Estilo básico para la sección de presentación */
+.presentation {
+  padding: 2rem;
+  text-align: center;
+}
+
+.presentation h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.presentation p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
