@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "3pFn0b4z/lXq52JsYl78n4kE6ED2uPOHbGwheWAhsOw=",
+  "Source": "tanituc.Server",
+  "BasePath": "_content/tanituc.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Dev\\tanituc\\tanituc.client\\tanituc.client.esproj",
+      "Version": 2,
+      "Source": "tanituc.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

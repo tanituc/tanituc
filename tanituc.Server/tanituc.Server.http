@@ -1,0 +1,6 @@
+@tanituc.Server_HostAddress = http://localhost:5191
+
+GET {{tanituc.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
