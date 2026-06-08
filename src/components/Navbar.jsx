@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiDownload, FiMenu, FiX } from 'react-icons/fi';
-import logo from '../assets/tanituc-logo.png';
+import ESCLogo from './ESCLogo';
 import { personalInfo } from '../data/cvData';
 import styles from './Navbar.module.css';
 
@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className={styles.inner}>
           {/* Logo */}
           <a href="#" className={styles.logo} aria-label="Home">
-            <img src={logo} alt="Tanituc" height={36} />
+            <ESCLogo height={36} />
           </a>
 
           {/* Desktop links */}
