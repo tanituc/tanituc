@@ -31,6 +31,7 @@
   animation: drift 25s ease-in-out infinite;
 }
 
+
 .cloud2 {
   position: absolute;
   top: 25%;
@@ -41,6 +42,7 @@
   animation: drift 35s ease-in-out infinite reverse;
 }
 
+
 .cloud3 {
   position: absolute;
   bottom: 15%;
@@ -50,6 +52,7 @@
   opacity: 0.5;
   animation: drift 20s ease-in-out infinite;
 }
+
 
 /* Container */
 .container {
@@ -85,13 +88,19 @@
 .illustration {
   width: 100%;
   max-width: 380px;
+  display: block;
+  background: #ffffff;
+  padding: 12px 12px 42px 12px; /* Extra bottom padding for polaroid effect */
   border: 3px solid var(--border-sketch);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #ffffff;
-  padding: 12px;
   box-shadow: 6px 6px 0px var(--border-sketch);
-  animation: float-gentle 6s ease-in-out infinite;
   filter: url(#crayon-sketch);
+  transform: rotate(2deg);
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+:global([data-theme="dark"]) .illustration {
+  background: #ece6df; /* Warm cream frame for dark mode */
 }
 
 /* Decorative sparkles */

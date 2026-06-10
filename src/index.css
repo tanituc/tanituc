@@ -11,32 +11,32 @@
   --bg-glass: rgba(255, 255, 255, 0.8);
   --border-sketch: #4a3f3b; /* Warm dark cocoa border */
   
-  --accent-primary: #597c56; /* Soft forest green */
-  --accent-secondary: #c07c65; /* Terracotta */
-  --accent-light: #7da079;
-  --accent-glow: rgba(89, 124, 86, 0.2);
-  --accent-gradient: linear-gradient(135deg, #597c56 0%, #c07c65 100%);
-  --accent-gradient-soft: linear-gradient(135deg, rgba(89, 124, 86, 0.1) 0%, rgba(192, 124, 101, 0.1) 100%);
+  --accent-primary: #3b5a37; /* Darker forest green for better contrast on cream background */
+  --accent-secondary: #ad6249; /* Darker terracotta */
+  --accent-light: #4c6d48;
+  --accent-glow: rgba(59, 90, 55, 0.2);
+  --accent-gradient: linear-gradient(135deg, #3b5a37 0%, #ad6249 100%);
+  --accent-gradient-soft: linear-gradient(135deg, rgba(59, 90, 55, 0.1) 0%, rgba(173, 98, 73, 0.1) 100%);
 
   /* Warm Pastels for different sections */
-  --pastel-green: #e9f2e7;
-  --pastel-green-dark: #597c56;
+  --pastel-green: #eaf1e8;
+  --pastel-green-dark: #3b5a37;
   --pastel-yellow: #fef5e4;
-  --pastel-yellow-dark: #dfa857;
-  --pastel-blue: #e8f2f6;
-  --pastel-blue-dark: #6fa0bc;
+  --pastel-yellow-dark: #ad6249;
+  --pastel-blue: #e6f0f5;
+  --pastel-blue-dark: #4d7a92;
   --pastel-pink: #fdf0eb;
-  --pastel-pink-dark: #cd8673;
+  --pastel-pink-dark: #ad6249;
 
   --text-primary: #4a3f3b; /* Warm dark brown instead of absolute black */
-  --text-secondary: #746762;
-  --text-muted: #9e8e88;
-  --text-accent: #597c56;
+  --text-secondary: #6e5e58; /* Improved contrast */
+  --text-muted: #8c7b74;
+  --text-accent: #3b5a37;
 
   /* Typography */
-  --font-sans: 'Balsamiq Sans', 'Fredoka', -apple-system, sans-serif;
+  --font-sans: 'Nunito', 'Quicksand', -apple-system, sans-serif;
   --font-crayon: 'Fuzzy Bubbles', cursive;
-  --font-mono: 'Fuzzy Bubbles', monospace;
+  --font-mono: 'Quicksand', monospace;
 
   /* Spacing */
   --section-padding: 80px 0;
@@ -59,6 +59,52 @@
   color-scheme: light;
 }
 
+/* Dark Theme / Night Mode variables */
+[data-theme="dark"] {
+  --bg-primary: #1a1a24; /* Cozy midnight indigo */
+  --bg-secondary: #121219; /* Deeper night shadow */
+  --bg-card: #22222d; /* Midnight card wood */
+  --bg-card-hover: #262635;
+  --border-sketch: #ece6df; /* Soft cream border lines */
+  
+  --accent-primary: #7da079; /* Soft forest green (lighter for dark background) */
+  --accent-secondary: #cd8673; /* Terracotta */
+  --accent-light: #9abf96;
+  --accent-glow: rgba(125, 160, 121, 0.2);
+  --accent-gradient: linear-gradient(135deg, #7da079 0%, #cd8673 100%);
+  --accent-gradient-soft: linear-gradient(135deg, rgba(125, 160, 121, 0.1) 0%, rgba(205, 134, 115, 0.1) 100%);
+
+  /* Night Pastels - deep, cozy night shades */
+  --pastel-green: #243528;
+  --pastel-green-dark: #7da079;
+  --pastel-yellow: #3c321d; /* warm lantern amber */
+  --pastel-yellow-dark: #dfa857;
+  --pastel-blue: #1d2b35;
+  --pastel-blue-dark: #6fa0bc;
+  --pastel-pink: #362220;
+  --pastel-pink-dark: #cd8673;
+
+  --text-primary: #faf6f0; /* Warm soft cream */
+  --text-secondary: #beb5ad; /* Muted cocoa */
+  --text-muted: #8a7f76;
+  --text-accent: #7da079;
+
+  --shadow-card: 5px 5px 0px #ece6df;
+  --shadow-card-hover: 7px 7px 0px #ece6df;
+
+  color-scheme: dark;
+}
+
+/*
+ * In dark mode, make all section and footer wrappers transparent so the
+ * fixed starfield rendered on the body/html layer shows through.
+ * Individual cards and inline elements keep their own background colors.
+ */
+[data-theme="dark"] section,
+[data-theme="dark"] footer {
+  background: transparent !important;
+  background-color: transparent !important;
+}
 /* Reset */
 *,
 *::before,
@@ -220,3 +266,63 @@ img {
   animation: drift 15s ease-in-out infinite;
   pointer-events: none;
 }
+
+/* Background Stars & Sparkles */
+.stars-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-star {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  fill: #ffe066; /* Bright golden yellow */
+  opacity: 0; /* Hidden in light mode */
+  transition: opacity 0.6s ease;
+  filter: drop-shadow(0 0 4px #ffe066);
+}
+
+[data-theme="dark"] .bg-star {
+  opacity: 1;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+}
+
+/* Let's scatter them randomly with different delay and durations */
+.bg-star:nth-child(1)  { top:  3%; left: 12%; animation-duration: 3.0s; animation-delay: 0.5s; }
+.bg-star:nth-child(2)  { top: 12%; right: 8%; animation-duration: 5.0s; animation-delay: 1.2s; }
+.bg-star:nth-child(3)  { top: 22%; left: 75%; animation-duration: 4.8s; animation-delay: 0.2s; }
+.bg-star:nth-child(4)  { top: 32%; left: 15%; animation-duration: 4.0s; animation-delay: 0.1s; }
+.bg-star:nth-child(5)  { top: 42%; right: 10%; animation-duration: 6.0s; animation-delay: 2.3s; }
+.bg-star:nth-child(6)  { top: 52%; left:  8%; animation-duration: 3.5s; animation-delay: 0.8s; }
+.bg-star:nth-child(7)  { top: 62%; right: 15%; animation-duration: 4.5s; animation-delay: 1.7s; }
+.bg-star:nth-child(8)  { top: 72%; left: 82%; animation-duration: 5.5s; animation-delay: 0.3s; }
+.bg-star:nth-child(9)  { top: 82%; left: 20%; animation-duration: 4.0s; animation-delay: 2.1s; }
+.bg-star:nth-child(10) { top: 90%; right: 12%; animation-duration: 5.0s; animation-delay: 0.9s; }
+.bg-star:nth-child(11) { top: 96%; left: 45%; animation-duration: 3.8s; animation-delay: 1.4s; }
+.bg-star:nth-child(12) { top: 16%; left: 30%; animation-duration: 4.2s; animation-delay: 0.7s; }
+.bg-star:nth-child(13) { top: 56%; left: 65%; animation-duration: 5.2s; animation-delay: 1.5s; }
+.bg-star:nth-child(14) { top: 78%; left: 50%; animation-duration: 4.6s; animation-delay: 1.1s; }
+.bg-star:nth-child(15) { top:  7%; left: 50%; animation-duration: 3.3s; animation-delay: 2.0s; }
+.bg-star:nth-child(16) { top: 18%; right: 30%; animation-duration: 4.9s; animation-delay: 0.4s; }
+.bg-star:nth-child(17) { top: 28%; left: 90%; animation-duration: 5.1s; animation-delay: 1.8s; }
+.bg-star:nth-child(18) { top: 38%; left: 40%; animation-duration: 3.7s; animation-delay: 0.6s; }
+.bg-star:nth-child(19) { top: 48%; left: 55%; animation-duration: 6.2s; animation-delay: 2.5s; }
+.bg-star:nth-child(20) { top: 58%; left:  2%; animation-duration: 3.9s; animation-delay: 1.0s; }
+.bg-star:nth-child(21) { top: 66%; left: 35%; animation-duration: 4.3s; animation-delay: 0.2s; }
+.bg-star:nth-child(22) { top: 75%; right: 30%; animation-duration: 5.6s; animation-delay: 1.9s; }
+.bg-star:nth-child(23) { top: 84%; left: 70%; animation-duration: 4.1s; animation-delay: 0.3s; }
+.bg-star:nth-child(24) { top: 93%; left:  5%; animation-duration: 5.3s; animation-delay: 1.3s; }
+.bg-star:nth-child(25) { top:  5%; right: 45%; animation-duration: 3.4s; animation-delay: 2.2s; }
+.bg-star:nth-child(26) { top: 25%; left: 60%; animation-duration: 4.7s; animation-delay: 0.9s; }
+.bg-star:nth-child(27) { top: 45%; left: 25%; animation-duration: 5.8s; animation-delay: 1.6s; }
+.bg-star:nth-child(28) { top: 68%; right: 40%; animation-duration: 3.6s; animation-delay: 2.4s; }
+.bg-star:nth-child(29) { top: 87%; left: 88%; animation-duration: 4.4s; animation-delay: 0.1s; }
+.bg-star:nth-child(30) { top: 35%; right: 25%; animation-duration: 5.9s; animation-delay: 1.0s; }

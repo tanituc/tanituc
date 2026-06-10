@@ -15,7 +15,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-export default function Hero() {
+export default function Hero({ isDark }) {
   return (
     <section className={styles.hero} id="hero">
       {/* Handdrawn style clouds background */}
@@ -93,7 +93,7 @@ export default function Hero() {
         >
           <div className={`${styles.sparkle} ${styles.sparkle1}`}>✨</div>
           <img
-            src="/cat_coding.png"
+            src={isDark ? '/cat_coding_night.png' : '/cat_coding.png'}
             className={styles.illustration}
             alt="Cute cat coding C# on a tiny laptop"
           />

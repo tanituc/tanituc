@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiDownload, FiMenu, FiX } from 'react-icons/fi';
+import { FiDownload, FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import ESCLogo from './ESCLogo';
 import { personalInfo } from '../data/cvData';
 import styles from './Navbar.module.css';
@@ -12,7 +12,7 @@ const navLinks = [
   { label: 'Education', href: '#education' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isDark, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -50,24 +50,44 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Download CV button — desktop */}
-          <a
-            href={`/${personalInfo.cvFileName}`}
-            download
-            className={styles.downloadBtn}
-          >
-            <FiDownload size={15} />
-            <span>Download CV</span>
-          </a>
+          <div className={styles.actionsGroup}>
+            {/* Download CV button — desktop */}
+            <a
+              href={`/${personalInfo.cvFileName}`}
+              download
+              className={styles.downloadBtn}
+            >
+              <FiDownload size={15} />
+              <span>Download CV</span>
+            </a>
 
-          {/* Hamburger */}
-          <button
-            className={styles.hamburger}
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          >
-            {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-          </button>
+            {/* Theme Toggle — desktop */}
+            <button
+              className={`${styles.themeToggle} ${styles.desktopToggle}`}
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+            </button>
+
+            {/* Theme Toggle — mobile (next to hamburger) */}
+            <button
+              className={`${styles.themeToggle} ${styles.mobileToggle}`}
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDark ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
+
+            {/* Hamburger */}
+            <button
+              className={styles.hamburger}
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+            </button>
+          </div>
         </div>
       </nav>
 

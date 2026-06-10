@@ -12,7 +12,7 @@
   max-width: 680px;
   margin: 0 auto;
   padding: 48px 32px;
-  background: #ffffff;
+  background: var(--bg-card);
   border: 3px solid var(--border-sketch);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   box-shadow: 6px 6px 0px var(--border-sketch);
@@ -67,7 +67,7 @@
 }
 
 .btnPrimary:hover {
-  background: #ffffff;
+  background: var(--bg-primary);
   color: var(--text-primary);
   box-shadow: 6px 6px 0px var(--border-sketch);
   transform: translate(-2px, -2px);
@@ -92,7 +92,7 @@
 }
 
 .btnGhost:hover {
-  background: #ffffff;
+  background: var(--bg-primary);
   color: var(--text-primary);
   box-shadow: 6px 6px 0px var(--border-sketch);
   transform: translate(-2px, -2px);

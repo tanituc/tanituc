@@ -1,27 +1,57 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Experience from './components/Experience'
-import Skills from './components/Skills'
-import Education from './components/Education'
-import DownloadCTA from './components/DownloadCTA'
-import Footer from './components/Footer'
+import { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
+import Education from './components/Education';
+import DownloadCTA from './components/DownloadCTA';
+import Footer from './components/Footer';
 
 function App() {
+  const [isDark, setIsDark] = useState(() => {
+    // Check local storage or default to dark mode
+    return localStorage.getItem('theme') !== 'light';
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
+
+  // Reusable Handdrawn Sparkle Star Path
+  const starPath = "M12,3 Q12,12 3,12 Q12,12 12,21 Q12,12 21,12 Q12,12 12,3 Z";
+
   return (
-    <>
-      <Navbar />
+    <div>
+      {/* Background Twinkling Stars */}
+      <div className="stars-container" aria-hidden="true">
+        {Array.from({ length: 30 }).map((_, i) => (
+          <svg key={i} className="bg-star" viewBox="0 0 24 24">
+            <path d={starPath} />
+          </svg>
+        ))}
+      </div>
+
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <DownloadCTA />
+        <Hero isDark={isDark} />
+        <About isDark={isDark} />
+        <Experience isDark={isDark} />
+        <Skills isDark={isDark} />
+        <Education isDark={isDark} />
+        <DownloadCTA isDark={isDark} />
       </main>
-      <Footer />
-    </>
-  )
+      <Footer isDark={isDark} />
+    </div>
+  );
 }
 
-export default App
+export default App;

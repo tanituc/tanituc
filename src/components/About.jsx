@@ -37,7 +37,7 @@ const cardColors = [
   styles.cardPink
 ];
 
-export default function About() {
+export default function About({ isDark }) {
   return (
     <motion.section
       id="about"
@@ -66,7 +66,7 @@ export default function About() {
             variants={fadeUp}
           >
             <img
-              src="/cat_cooking_soup.png"
+              src={isDark ? '/cat_cooking_soup_night.png' : '/cat_cooking_soup.png'}
               className={styles.illustration}
               alt="Cute cat cooking .NET soup"
             />

@@ -39,13 +39,19 @@
 .illustration {
   width: 100%;
   max-width: 280px;
-  border: 3px solid var(--border-sketch);
-  border-radius: 15px 255px 15px 225px / 255px 15px 255px 15px;
+  display: block;
   background: #ffffff;
-  padding: 10px;
+  padding: 10px 10px 38px 10px; /* Polaroid frame padding */
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   box-shadow: 5px 5px 0px var(--border-sketch);
-  animation: float-gentle 6s ease-in-out infinite reverse;
   filter: url(#crayon-sketch);
+  transform: rotate(-3deg);
+  animation: float-gentle 6s ease-in-out infinite reverse;
+}
+
+:global([data-theme="dark"]) .illustration {
+  background: #ece6df; /* Warm cream frame for dark mode */
 }
 
 .label {

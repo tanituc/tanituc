@@ -36,13 +36,19 @@
 .illustration {
   width: 100%;
   max-width: 260px;
+  display: block;
+  background: #ffffff;
+  padding: 10px 10px 38px 10px; /* Polaroid frame padding */
   border: 3px solid var(--border-sketch);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #ffffff;
-  padding: 10px;
   box-shadow: 5px 5px 0px var(--border-sketch);
-  animation: float-gentle 5.5s ease-in-out infinite;
   filter: url(#crayon-sketch);
+  transform: rotate(1.5deg);
+  animation: float-gentle 5.5s ease-in-out infinite;
+}
+
+:global([data-theme="dark"]) .illustration {
+  background: #ece6df; /* Warm cream frame for dark mode */
 }
 
 .grid {
@@ -108,19 +114,12 @@
   font-size: 12px;
   font-weight: 700;
   color: var(--text-primary);
-  background: #ffffff;
+  background: var(--bg-primary);
   border: 2px solid var(--border-sketch);
   border-radius: 255px 8px 225px 8px/8px 225px 8px 255px;
   padding: 4px 12px;
   box-shadow: 2px 2px 0px var(--border-sketch);
-  transition: all var(--transition-fast);
   white-space: nowrap;
-}
-
-.chip:hover {
-  background: var(--pastel-yellow);
-  box-shadow: 3px 3px 0px var(--border-sketch);
-  transform: translate(-1px, -1px);
 }
 
 /* Responsive */

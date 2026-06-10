@@ -43,7 +43,7 @@ export default function ESCLogo({ height = 36, ...props }) {
       <text
         x="44"
         y="21"
-        fill="#4a3f3b"
+        fill="var(--text-primary)"
         fontFamily="var(--font-crayon)"
         fontSize="21"
         fontWeight="700"
@@ -56,7 +56,7 @@ export default function ESCLogo({ height = 36, ...props }) {
       <text
         x="45"
         y="33"
-        fill="#746762"
+        fill="var(--text-secondary)"
         fontFamily="var(--font-sans)"
         fontSize="10"
         fontWeight="700"

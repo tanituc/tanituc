@@ -125,6 +125,42 @@
   transform: scale(1.05) rotate(2deg);
 }
 
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  border: 3px solid var(--border-sketch);
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
+  filter: url(#crayon-sketch);
+}
+
+.themeToggle:hover {
+  background: var(--pastel-yellow);
+  transform: translate(-1px, -1px) scale(1.05) rotate(5deg);
+  box-shadow: 3px 3px 0px var(--border-sketch);
+}
+
+.desktopToggle {
+  display: inline-flex;
+}
+
+.mobileToggle {
+  display: none;
+}
+
 /* ==============================
    Mobile overlay & menu
    ============================== */
@@ -209,8 +245,13 @@
    ============================== */
 @media (max-width: 768px) {
   .links,
-  .downloadBtn {
+  .downloadBtn,
+  .desktopToggle {
     display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
   }
 
   .hamburger {

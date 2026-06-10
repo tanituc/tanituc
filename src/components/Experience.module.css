@@ -230,16 +230,8 @@
   border: 2px solid var(--border-sketch);
   border-radius: 255px 10px 225px 10px/10px 225px 10px 255px;
   padding: 4px 12px;
-  transition: all var(--transition-fast);
   white-space: nowrap;
   box-shadow: 2px 2px 0px var(--border-sketch);
-}
-
-.pill:hover {
-  color: var(--text-primary);
-  background: var(--pastel-yellow);
-  box-shadow: 3px 3px 0px var(--border-sketch);
-  transform: translate(-1px, -1px);
 }
 
 /* Responsive */

@@ -41,7 +41,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--bg-card);
   border: 2px solid var(--border-sketch);
   box-shadow: 2px 2px 0px var(--border-sketch);
   display: flex;

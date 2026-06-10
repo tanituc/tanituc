@@ -46,7 +46,7 @@ const cardColors = [
   styles.cardGreen
 ];
 
-function Skills() {
+function Skills({ isDark }) {
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.container}>
@@ -58,7 +58,7 @@ function Skills() {
           
           <div className={styles.illustrationCol}>
             <img
-              src="/cat_fishing.png"
+              src={isDark ? '/cat_fishing_night.png' : '/cat_fishing.png'}
               className={styles.illustration}
               alt="Cute cat fishing for Azure DevOps clouds"
             />
