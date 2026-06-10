@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { summary, highlights } from '../data/cvData';
 import styles from './About.module.css';
 
-const boldTerms = ['7+ years', 'enterprise-grade', 'cloud-native', '.NET 10', 'Baltic region'];
+const boldTerms = ['7+ years', 'enterprise-grade', 'cloud-native', '.NET 10', 'Open to relocation'];
 
 function highlightSummary(text) {
   const regex = new RegExp(`(${boldTerms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');

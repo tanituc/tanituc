@@ -422,6 +422,11 @@
 
     /* Media query print overrides */
     @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
       body {
         background-color: #ffffff;
         color: var(--text-primary);
@@ -434,18 +439,24 @@
       }
 
       .page {
-        margin: 0;
-        border: none;
-        box-shadow: none;
-        border-radius: 0;
+        margin: 0 !important;
+        border: 3px solid var(--border-sketch) !important;
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important;
+        box-shadow: none !important;
         filter: none !important; /* Prevents blurry text in PDF generation */
-        width: 210mm;
-        height: 297mm;
-        page-break-after: always;
+        width: 210mm !important;
+        height: 297mm !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        background-color: var(--bg-primary) !important;
+      }
+
+      .page:last-of-type {
+        page-break-after: avoid !important;
       }
 
       .side-card {
-        box-shadow: none;
+        box-shadow: none !important;
       }
     }
   </style>
@@ -474,7 +485,7 @@
         <section>
           <h3 class="section-heading">🐾 Professional Summary</h3>
           <p class="summary-text">
-            Senior Backend Developer with <strong>7+ years</strong> of experience building <strong>enterprise-grade</strong> applications using C#, .NET, and SQL. Proven expertise in modernizing legacy systems (.NET Framework 4.8) to <strong>cloud-native</strong> architectures (<strong>.NET 10</strong>) with Docker, Azure, and microservices. Currently driving platform modernization at a leading U.S. insurance carrier, collaborating daily with international stakeholders in English. Actively seeking relocation to the <strong>Nordic & Baltic region</strong> after visiting Estonia, Lithuania, Latvia, Finland, and Sweden.
+            Senior Backend Developer with <strong>7+ years</strong> of experience building <strong>enterprise-grade</strong> applications using C#, .NET, and SQL. Proven expertise in modernizing legacy systems (.NET Framework 4.8) to <strong>cloud-native</strong> architectures (<strong>.NET 10</strong>) with Docker, Azure, and microservices. Currently driving platform modernization at a leading U.S. insurance carrier, collaborating daily with international stakeholders in English. <strong>Open to relocation</strong>.
           </p>
         </section>
 
@@ -684,7 +695,7 @@
         <div class="side-card pastel-pink">
           <h4 class="card-heading">Relocation</h4>
           <p class="relocation-text">
-            📍 Open to relocation. Actively seeking opportunities in the Nordic & Baltic region.
+            📍 Open to relocation.
           </p>
         </div>
       </div>

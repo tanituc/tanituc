@@ -12,7 +12,7 @@ export const personalInfo = {
 };
 
 export const summary =
-  "Senior Backend Developer with 7+ years of experience building enterprise-grade applications using C#, .NET, and SQL. Proven expertise in modernizing legacy systems (.NET Framework 4.8) to cloud-native architectures (.NET 10) with Docker, Azure, and microservices. Currently driving platform modernization at a leading U.S. insurance carrier, collaborating daily with international stakeholders in English. Actively seeking relocation to the Nordic & Baltic region after visiting Estonia, Lithuania, Latvia, Finland, and Sweden.";
+  "Senior Backend Developer with 7+ years of experience building enterprise-grade applications using C#, .NET, and SQL. Proven expertise in modernizing legacy systems (.NET Framework 4.8) to cloud-native architectures (.NET 10) with Docker, Azure, and microservices. Currently driving platform modernization at a leading U.S. insurance carrier, collaborating daily with international stakeholders in English. Open to relocation.";
 
 export const highlights = [
   { value: "7+", label: "Years Experience" },
