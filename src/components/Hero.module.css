@@ -246,6 +246,11 @@
   transform: translate(-2px, -2px);
 }
 
+/* Cat Spawner Widget placement */
+.catSpawnerWrapper {
+  margin-top: 4px;
+}
+
 /* Scroll indicator */
 .scrollIndicator {
   position: absolute;

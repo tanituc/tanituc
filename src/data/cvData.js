@@ -6,7 +6,7 @@ export const personalInfo = {
   email: "cordobaestanislaos@gmail.com",
   linkedin: "https://www.linkedin.com/in/estanislaocordoba/",
   github: "https://github.com/tanituc",
-  relocation: "Open to relocation — Nordic & Baltic Region",
+  relocation: "Open to relocation",
   visaNote: "Visa sponsorship required · Available immediately",
   cvFileName: "Estanislao_Cordoba_CV.pdf",
 };

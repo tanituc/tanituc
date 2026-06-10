@@ -1,0 +1,156 @@
+/* =========================================
+   CatSpawner — the "+1" button
+   ========================================= */
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px 8px 10px;
+  background: var(--bg-card, #fff);
+  border: 2.5px solid var(--border-sketch, #4a3f3b);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px var(--border-sketch, #4a3f3b);
+  cursor: pointer;
+  font-family: var(--font-crayon, cursive);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary, #4a3f3b);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+  overflow: visible;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--border-sketch, #4a3f3b);
+  background: var(--pastel-yellow, #fef5e4);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-sketch, #4a3f3b);
+}
+
+/* Ripple burst animation */
+.btn.ripple::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 3px solid var(--accent-secondary, #ad6249);
+  animation: rippleBurst 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleBurst {
+  0%   { opacity: 1;  transform: scale(1); }
+  100% { opacity: 0;  transform: scale(1.5); }
+}
+
+/* Cat sprite — shows the sitting frame (col 1 / 4) from sprite_cat_gray.png
+   Real sprite: 824×303px → each frame is 206×303px (ratio 0.68, NOT square)
+   Render height = 48px → frame render width = round(48 × 206/303) = 33px
+   Sheet render width = 33 × 4 = 132px
+   Col 1 offset (sitting) = -33px */
+.catSprite {
+  width: 33px;
+  height: 48px;
+  background-image: url('/sprite_cat_gray.png');
+  background-size: 132px 48px;
+  background-position: -33px 0px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  mix-blend-mode: multiply;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--accent-primary, #3b5a37);
+}
+
+/* Sprite wiggle on button hover */
+.catImgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: catWiggle 2s ease-in-out infinite;
+}
+
+@keyframes catWiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25%       { transform: rotate(-6deg) scale(1.05); }
+  75%       { transform: rotate(6deg) scale(1.05); }
+}
+
+.btn:hover .catImgWrapper {
+  animation: catExcited 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes catExcited {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(-5px) scale(1.14); }
+}
+
+/* On hover, shift to walk frame (col 0) to hint at action */
+.btn:hover .catSprite {
+  background-position: 0px 0px;
+  mix-blend-mode: multiply;
+}
+
+/* Flying "+1 🐾" pop counter */
+.popCounter {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-crayon, cursive);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-secondary, #ad6249);
+  pointer-events: none;
+  animation: popFly 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  white-space: nowrap;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+}
+
+@keyframes popFly {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0) scale(0.8); }
+  60%  { opacity: 1; transform: translateX(-50%) translateY(-28px) scale(1.1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-48px) scale(0.9); }
+}
+
+/* Running cat count badge */
+.countBadge {
+  font-family: var(--font-crayon, cursive);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary, #6e5e58);
+  padding: 3px 8px;
+  background: var(--pastel-yellow, #fef5e4);
+  border: 1.5px solid var(--border-sketch, #4a3f3b);
+  border-radius: 20px;
+  white-space: nowrap;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

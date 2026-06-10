@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiMail, FiNavigation, FiChevronDown } from 'react-icons/fi';
 import { personalInfo } from '../data/cvData';
 import styles from './Hero.module.css';
+import CatSpawner from './CatSpawner';
 
 const container = {
   hidden: {},
@@ -15,7 +16,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-export default function Hero({ isDark }) {
+export default function Hero({ isDark, onSpawnCat, catCount }) {
   return (
     <section className={styles.hero} id="hero">
       {/* Handdrawn style clouds background */}
@@ -60,7 +61,6 @@ export default function Hero({ isDark }) {
           <motion.div className={styles.badge} variants={fadeUp}>
             <FiNavigation size={14} />
             <span>{personalInfo.relocation}</span>
-            <span className={styles.flags}>🇪🇪 🇱🇹 🇱🇻 🇫🇮 🇸🇪</span>
           </motion.div>
 
           {/* CTA buttons */}
@@ -81,6 +81,11 @@ export default function Hero({ isDark }) {
               <FiMail size={16} />
               <span>Get in Touch</span>
             </a>
+          </motion.div>
+
+          {/* Cat spawner widget */}
+          <motion.div variants={fadeUp} className={styles.catSpawnerWrapper}>
+            <CatSpawner onSpawn={onSpawnCat} catCount={catCount} />
           </motion.div>
         </motion.div>
 

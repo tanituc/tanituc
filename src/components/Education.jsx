@@ -106,9 +106,7 @@ function Education() {
             <div className={styles.callout}>
               <FiNavigation className={styles.calloutIcon} />
               <p className={styles.calloutText}>
-                Open to relocation — visited the Baltic &amp; Nordic region in 2025.
-                Actively seeking opportunities in Estonia, Lithuania, Latvia,
-                Finland, and Sweden. Visa sponsorship required · Available immediately.
+                Open to relocation.
               </p>
             </div>
           </motion.div>
