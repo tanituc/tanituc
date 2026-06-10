@@ -30,6 +30,13 @@ const fadeUp = {
   },
 };
 
+const cardColors = [
+  styles.cardGreen,
+  styles.cardYellow,
+  styles.cardBlue,
+  styles.cardPink
+];
+
 export default function About() {
   return (
     <motion.section
@@ -41,30 +48,48 @@ export default function About() {
       variants={containerVariants}
     >
       <div className={styles.container}>
-        <motion.span className={styles.label} variants={fadeUp}>
-          About Me
-        </motion.span>
-        <motion.h2 className={styles.heading} variants={fadeUp}>
-          Professional Summary
-        </motion.h2>
-        <motion.p className={styles.summary} variants={fadeUp}>
-          {highlightSummary(summary)}
-        </motion.p>
+        <div className={styles.topRow}>
+          <div className={styles.introCol}>
+            <motion.span className={styles.label} variants={fadeUp}>
+              About Me
+            </motion.span>
+            <motion.h2 className={styles.heading} variants={fadeUp}>
+              Professional Summary
+            </motion.h2>
+            <motion.p className={styles.summary} variants={fadeUp}>
+              {highlightSummary(summary)}
+            </motion.p>
+          </div>
+
+          <motion.div
+            className={styles.illustrationCol}
+            variants={fadeUp}
+          >
+            <img
+              src="/cat_cooking_soup.png"
+              className={styles.illustration}
+              alt="Cute cat cooking .NET soup"
+            />
+          </motion.div>
+        </div>
 
         <motion.div
           className={styles.highlights}
           variants={containerVariants}
         >
-          {highlights.map((item) => (
-            <motion.div
-              key={item.label}
-              className={styles.card}
-              variants={fadeUp}
-            >
-              <div className={styles.cardValue}>{item.value}</div>
-              <div className={styles.cardLabel}>{item.label}</div>
-            </motion.div>
-          ))}
+          {highlights.map((item, index) => {
+            const colorClass = cardColors[index % cardColors.length];
+            return (
+              <motion.div
+                key={item.label}
+                className={`${styles.card} ${colorClass}`}
+                variants={fadeUp}
+              >
+                <div className={styles.cardValue}>{item.value}</div>
+                <div className={styles.cardLabel}>{item.label}</div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </motion.section>

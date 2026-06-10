@@ -37,13 +37,32 @@ const cardVariants = {
   },
 };
 
+const cardColors = [
+  styles.cardBlue,
+  styles.cardGreen,
+  styles.cardYellow,
+  styles.cardPink,
+  styles.cardBlue,
+  styles.cardGreen
+];
+
 function Skills() {
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <p className="section-label">EXPERTISE</p>
-          <h2 className="section-heading">Technical Skills</h2>
+        <div className={styles.headerRow}>
+          <div className={styles.headerLeft}>
+            <p className="section-label">EXPERTISE</p>
+            <h2 className="section-heading">Technical Skills</h2>
+          </div>
+          
+          <div className={styles.illustrationCol}>
+            <img
+              src="/cat_fishing.png"
+              className={styles.illustration}
+              alt="Cute cat fishing for Azure DevOps clouds"
+            />
+          </div>
         </div>
 
         <motion.div
@@ -53,12 +72,13 @@ function Skills() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
-          {skills.map((skill) => {
+          {skills.map((skill, index) => {
             const Icon = categoryIcons[skill.category] || FiServer;
+            const colorClass = cardColors[index % cardColors.length];
             return (
               <motion.div
                 key={skill.category}
-                className={styles.card}
+                className={`${styles.card} ${colorClass}`}
                 variants={cardVariants}
               >
                 <div className={styles.cardIcon}>

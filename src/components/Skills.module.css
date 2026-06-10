@@ -2,6 +2,9 @@
 .section {
   padding: var(--section-padding);
   position: relative;
+  background: var(--bg-secondary);
+  border-top: 3px solid var(--border-sketch);
+  border-bottom: 3px solid var(--border-sketch);
 }
 
 .container {
@@ -10,8 +13,36 @@
   padding: var(--container-padding);
 }
 
-.header {
+/* Header layout with illustration */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
   margin-bottom: 48px;
+}
+
+.headerLeft {
+  flex: 1.2;
+}
+
+.illustrationCol {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 260px;
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 5px 5px 0px var(--border-sketch);
+  animation: float-gentle 5.5s ease-in-out infinite;
+  filter: url(#crayon-sketch);
 }
 
 .grid {
@@ -23,36 +54,43 @@
 /* Skill Card */
 .card {
   background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   padding: 28px 24px;
-  transition: all var(--transition-slow);
+  box-shadow: 4px 4px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
+  filter: url(#crayon-sketch);
 }
 
 .card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glass-hover);
-  box-shadow: var(--shadow-glow);
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px var(--border-sketch);
 }
+
+/* Pastels */
+.cardGreen { background-color: var(--pastel-green); }
+.cardYellow { background-color: var(--pastel-yellow); }
+.cardBlue { background-color: var(--pastel-blue); }
+.cardPink { background-color: var(--pastel-pink); }
 
 .cardIcon {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-md);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 255px 8px 225px 8px/8px 225px 8px 255px;
+  background: #ffffff;
+  border: 2px solid var(--border-sketch);
+  box-shadow: 2px 2px 0px var(--border-sketch);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-light);
+  color: var(--accent-primary);
   font-size: 20px;
   margin-bottom: 16px;
 }
 
 .cardTitle {
-  font-size: 16px;
+  font-family: var(--font-crayon);
+  font-size: 17px;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -68,24 +106,40 @@
 
 .chip {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--accent-light);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  border-radius: 100px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 2px solid var(--border-sketch);
+  border-radius: 255px 8px 225px 8px/8px 225px 8px 255px;
   padding: 4px 12px;
-  transition: background var(--transition-fast);
+  box-shadow: 2px 2px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
 .chip:hover {
-  background: rgba(37, 99, 235, 0.2);
+  background: var(--pastel-yellow);
+  box-shadow: 3px 3px 0px var(--border-sketch);
+  transform: translate(-1px, -1px);
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .illustrationCol {
+    align-self: center;
+    max-width: 220px;
   }
 }
 

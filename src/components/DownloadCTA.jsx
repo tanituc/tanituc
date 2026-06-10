@@ -34,14 +34,14 @@ function DownloadCTA() {
             className={styles.btnPrimary}
           >
             <FiDownload />
-            Download CV
+            <span>Download CV</span>
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
             className={styles.btnGhost}
           >
             <FiMail />
-            Send Email
+            <span>Send Email</span>
           </a>
         </div>
 
@@ -52,7 +52,7 @@ function DownloadCTA() {
           className={styles.linkedinLink}
         >
           <FiLinkedin className={styles.linkedinIcon} />
-          Connect on LinkedIn
+          <span>Connect on LinkedIn</span>
         </a>
       </motion.div>
     </section>

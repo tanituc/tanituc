@@ -1,5 +1,5 @@
 /* ========================================
-   Navbar — Premium Glass Navigation
+   Navbar — Handdrawn Cozy Navigation
    ======================================== */
 
 .navbar {
@@ -9,19 +9,15 @@
   right: 0;
   z-index: 1000;
   padding: 0 24px;
-  transition:
-    background var(--transition-slow),
-    border-color var(--transition-slow),
-    box-shadow var(--transition-slow);
-  border-bottom: 1px solid transparent;
+  transition: all var(--transition-base);
+  border-bottom: 3px solid transparent;
+  background: transparent;
 }
 
 .navbar.scrolled {
-  background: rgba(6, 6, 15, 0.72);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom-color: var(--border-glass);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  background: var(--bg-primary);
+  border-bottom-color: var(--border-sketch);
+  box-shadow: 0 4px 15px rgba(74, 63, 59, 0.08);
 }
 
 /* Inner container */
@@ -31,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 80px;
 }
 
 /* Logo */
@@ -39,10 +35,15 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.logo:hover {
+  transform: rotate(-2deg) scale(1.05);
 }
 
 .logo img {
-  height: 36px;
+  height: 38px;
   width: auto;
   display: block;
 }
@@ -51,27 +52,29 @@
 .links {
   display: flex;
   list-style: none;
-  gap: 8px;
+  gap: 12px;
   margin: 0;
   padding: 0;
 }
 
 .navLink {
   display: block;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 8px 18px;
+  font-family: var(--font-crayon);
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text-secondary);
-  border-radius: var(--radius-sm);
-  transition:
-    color var(--transition-fast),
-    background var(--transition-fast);
+  border-radius: 255px 12px 225px 12px/12px 225px 12px 255px;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
   letter-spacing: 0.01em;
 }
 
 .navLink:hover {
   color: var(--text-primary);
-  background: var(--bg-glass);
+  background: var(--pastel-yellow);
+  border-color: var(--border-sketch);
+  transform: rotate(-1deg);
 }
 
 /* Download CV button */
@@ -79,23 +82,26 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent-gradient);
-  border-radius: 999px;
+  padding: 8px 20px;
+  font-family: var(--font-crayon);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--pastel-green);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 3px 3px 0px var(--border-sketch);
   letter-spacing: 0.02em;
-  transition:
-    box-shadow var(--transition-base),
-    transform var(--transition-fast);
+  transition: all var(--transition-fast);
   text-decoration: none;
+  filter: url(#crayon-sketch);
 }
 
 .downloadBtn:hover {
-  color: #fff;
-  box-shadow: 0 0 24px var(--accent-glow);
-  transform: translateY(-1px);
+  color: var(--text-primary);
+  background: var(--bg-card);
+  box-shadow: 5px 5px 0px var(--border-sketch);
+  transform: translate(-2px, -2px);
 }
 
 /* Hamburger — hidden on desktop */
@@ -103,18 +109,20 @@
   display: none;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  background: transparent;
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-sm);
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 10px 225px 10px/10px 225px 10px 255px;
   color: var(--text-primary);
   cursor: pointer;
-  transition: background var(--transition-fast);
+  box-shadow: 2px 2px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
 }
 
 .hamburger:hover {
-  background: var(--bg-glass);
+  background: var(--pastel-yellow);
+  transform: scale(1.05) rotate(2deg);
 }
 
 /* ==============================
@@ -124,25 +132,22 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(74, 63, 59, 0.4);
 }
 
 .mobileMenu {
   position: absolute;
   top: 0;
   right: 0;
-  width: 280px;
+  width: 290px;
   height: 100%;
-  background: rgba(10, 10, 25, 0.95);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-left: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--border-sketch);
   padding: 96px 32px 40px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
 }
 
 .mobileLinks {
@@ -151,24 +156,25 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .mobileNavLink {
   display: block;
-  padding: 14px 16px;
-  font-size: 17px;
-  font-weight: 500;
+  padding: 12px 20px;
+  font-family: var(--font-crayon);
+  font-size: 18px;
+  font-weight: 700;
   color: var(--text-secondary);
-  border-radius: var(--radius-sm);
-  transition:
-    color var(--transition-fast),
-    background var(--transition-fast);
+  border-radius: 255px 12px 225px 12px/12px 225px 12px 255px;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
 }
 
 .mobileNavLink:hover {
   color: var(--text-primary);
-  background: var(--bg-glass);
+  background: var(--pastel-yellow);
+  border-color: var(--border-sketch);
 }
 
 .mobileDownload {
@@ -177,21 +183,25 @@
   justify-content: center;
   gap: 10px;
   padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent-gradient);
-  border-radius: 999px;
+  font-family: var(--font-crayon);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--pastel-green);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px var(--border-sketch);
   text-decoration: none;
   margin-top: auto;
-  transition:
-    box-shadow var(--transition-base),
-    transform var(--transition-fast);
+  transition: all var(--transition-fast);
+  filter: url(#crayon-sketch);
 }
 
 .mobileDownload:hover {
-  color: #fff;
-  box-shadow: 0 0 24px var(--accent-glow);
+  color: var(--text-primary);
+  background: var(--bg-card);
+  box-shadow: 6px 6px 0px var(--border-sketch);
+  transform: translate(-2px, -2px);
 }
 
 /* ==============================
@@ -208,6 +218,6 @@
   }
 
   .inner {
-    height: 64px;
+    height: 72px;
   }
 }

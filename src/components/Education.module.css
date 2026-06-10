@@ -2,6 +2,7 @@
 .section {
   padding: var(--section-padding);
   position: relative;
+  background: var(--bg-primary);
 }
 
 .container {
@@ -29,41 +30,45 @@
 .eduCards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .eduCard {
   background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   padding: 24px;
-  transition: all var(--transition-slow);
+  box-shadow: 4px 4px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
+  filter: url(#crayon-sketch);
 }
 
 .eduCard:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glass-hover);
-  box-shadow: var(--shadow-glow);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--border-sketch);
 }
+
+.cardPink { background-color: var(--pastel-pink); }
+.cardGreen { background-color: var(--pastel-green); }
 
 .eduIcon {
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-sm);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 255px 8px 225px 8px/8px 225px 8px 255px;
+  background: #ffffff;
+  border: 2px solid var(--border-sketch);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-light);
+  color: var(--accent-primary);
   font-size: 16px;
   margin-bottom: 12px;
+  box-shadow: 1px 1px 0px var(--border-sketch);
 }
 
 .eduDegree {
-  font-size: 16px;
+  font-family: var(--font-crayon);
+  font-size: 17px;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -73,19 +78,21 @@
   font-size: 13px;
   color: var(--text-secondary);
   margin-bottom: 4px;
+  font-weight: 700;
 }
 
 .eduMeta {
   font-size: 12px;
   color: var(--text-muted);
+  font-weight: 700;
 }
 
 /* Languages */
 .langList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 18px;
+  margin-bottom: 28px;
 }
 
 .langItem {
@@ -104,8 +111,9 @@
 }
 
 .langName {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--font-crayon);
+  font-size: 16px;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 2px;
 }
@@ -114,44 +122,43 @@
   font-size: 12px;
   color: var(--text-secondary);
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .langDots {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: #ffffff;
+  border: 2px solid var(--border-sketch);
   transition: background var(--transition-fast);
 }
 
 .dotFilled {
   background: var(--accent-secondary);
-  border-color: var(--accent-secondary);
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
 }
 
 /* Relocation Callout */
 .callout {
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  border-radius: var(--radius-md);
+  background: var(--pastel-yellow);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 12px 225px 12px/12px 225px 12px 255px;
   padding: 20px;
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  box-shadow: 4px 4px 0px var(--border-sketch);
+  filter: url(#crayon-sketch);
 }
 
 .calloutIcon {
   font-size: 20px;
-  color: var(--accent-light);
+  color: var(--accent-secondary);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -160,6 +167,7 @@
   font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.6;
+  font-weight: 700;
 }
 
 /* Responsive */

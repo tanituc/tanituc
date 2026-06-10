@@ -18,58 +18,88 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className={styles.hero} id="hero">
-      {/* Animated background mesh */}
-      <div className={styles.meshBg} aria-hidden="true" />
-      <div className={styles.noiseBg} aria-hidden="true" />
+      {/* Handdrawn style clouds background */}
+      <div className={styles.cloudsBg} aria-hidden="true">
+        {/* Cloud 1 */}
+        <svg className={styles.cloud1} viewBox="0 0 100 60" fill="#f0e9e1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 40 Q 15 25, 30 30 Q 40 15, 60 25 Q 75 15, 85 30 Q 95 35, 90 45 Q 85 55, 10 50 Z" />
+        </svg>
+        {/* Cloud 2 */}
+        <svg className={styles.cloud2} viewBox="0 0 120 70" fill="#eedcd0" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 45 Q 20 30, 40 35 Q 50 15, 75 25 Q 90 15, 105 35 Q 115 40, 110 55 Q 100 65, 15 60 Z" />
+        </svg>
+        {/* Cloud 3 */}
+        <svg className={styles.cloud3} viewBox="0 0 90 50" fill="#f4ece4" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 30 Q 15 15, 30 20 Q 40 5, 55 15 Q 70 5, 80 20 Q 88 25, 85 35 Q 80 45, 10 40 Z" />
+        </svg>
+      </div>
 
-      <motion.div
-        className={styles.content}
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {/* Label */}
-        <motion.p className={styles.label} variants={fadeUp}>
-          {personalInfo.title}
-        </motion.p>
+      <div className={styles.container}>
+        <motion.div
+          className={styles.content}
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          {/* Label */}
+          <motion.p className={styles.label} variants={fadeUp}>
+            {personalInfo.title}
+          </motion.p>
 
-        {/* Name */}
-        <motion.h1 className={styles.name} variants={fadeUp}>
-          {personalInfo.name}
-        </motion.h1>
+          {/* Name */}
+          <motion.h1 className={styles.name} variants={fadeUp}>
+            {personalInfo.name}
+          </motion.h1>
 
-        {/* Subtitle */}
-        <motion.p className={styles.subtitle} variants={fadeUp}>
-          {personalInfo.subtitle}
-        </motion.p>
+          {/* Subtitle */}
+          <motion.p className={styles.subtitle} variants={fadeUp}>
+            {personalInfo.subtitle}
+          </motion.p>
 
-        {/* Relocation badge */}
-        <motion.div className={styles.badge} variants={fadeUp}>
-          <FiNavigation size={14} />
-          <span>{personalInfo.relocation}</span>
-          <span className={styles.flags}>🇪🇪 🇱🇹 🇱🇻 🇫🇮 🇸🇪</span>
+          {/* Relocation badge */}
+          <motion.div className={styles.badge} variants={fadeUp}>
+            <FiNavigation size={14} />
+            <span>{personalInfo.relocation}</span>
+            <span className={styles.flags}>🇪🇪 🇱🇹 🇱🇻 🇫🇮 🇸🇪</span>
+          </motion.div>
+
+          {/* CTA buttons */}
+          <motion.div className={styles.actions} variants={fadeUp}>
+            <a
+              href={`/${personalInfo.cvFileName}`}
+              download
+              className={styles.btnPrimary}
+            >
+              <FiDownload size={16} />
+              <span>Download CV</span>
+            </a>
+
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className={styles.btnSecondary}
+            >
+              <FiMail size={16} />
+              <span>Get in Touch</span>
+            </a>
+          </motion.div>
         </motion.div>
 
-        {/* CTA buttons */}
-        <motion.div className={styles.actions} variants={fadeUp}>
-          <a
-            href={`/${personalInfo.cvFileName}`}
-            download
-            className={styles.btnPrimary}
-          >
-            <FiDownload size={16} />
-            <span>Download CV</span>
-          </a>
-
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className={styles.btnSecondary}
-          >
-            <FiMail size={16} />
-            <span>Get in Touch</span>
-          </a>
+        {/* Right column - Illustration */}
+        <motion.div
+          className={styles.illustrationContainer}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.7 }}
+        >
+          <div className={`${styles.sparkle} ${styles.sparkle1}`}>✨</div>
+          <img
+            src="/cat_coding.png"
+            className={styles.illustration}
+            alt="Cute cat coding C# on a tiny laptop"
+          />
+          <div className={`${styles.sparkle} ${styles.sparkle2}`}>⭐</div>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div

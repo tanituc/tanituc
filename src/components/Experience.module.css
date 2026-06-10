@@ -1,10 +1,11 @@
 /* ========================================
-   Experience Section — Timeline
+   Experience Section — Cozy Timeline
    ======================================== */
 
 .section {
   padding: var(--section-padding);
   position: relative;
+  background: var(--bg-primary);
 }
 
 .container {
@@ -13,105 +14,100 @@
   padding: var(--container-padding);
 }
 
-/* Header */
 .label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent-light);
+  font-family: var(--font-crayon);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-primary);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 12px;
 }
 
 .label::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--accent-gradient);
-  border-radius: 1px;
+  content: '🐾';
 }
 
 .heading {
+  font-family: var(--font-crayon);
   font-size: clamp(28px, 4vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.5px;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: 48px;
+  color: var(--text-primary);
 }
 
 /* Timeline container */
 .timeline {
   position: relative;
-  padding-left: 40px;
+  padding-left: 44px;
 }
 
-/* Vertical line */
+/* Vertical line - handdrawn dashed stitch */
 .timeline::before {
   content: '';
   position: absolute;
-  left: 5px;
+  left: 6px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    180deg,
-    var(--accent-primary) 0%,
-    var(--accent-secondary) 50%,
-    rgba(37, 99, 235, 0.1) 100%
-  );
-  border-radius: 1px;
+  width: 0;
+  border-left: 3px dashed var(--border-sketch);
 }
 
 /* Timeline entry */
 .entry {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .entry:last-child {
   margin-bottom: 0;
 }
 
-/* Timeline dot */
+/* Timeline dot - handdrawn wobbly circle */
 .dot {
   position: absolute;
-  left: -40px;
-  top: 28px;
-  width: 12px;
-  height: 12px;
+  left: -48px;
+  top: 26px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 2px solid var(--accent-primary);
+  border: 3px solid var(--border-sketch);
   background: var(--bg-primary);
   z-index: 2;
-  transform: translateX(0px);
+  box-shadow: 2px 2px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
 }
 
 .dotCurrent {
-  background: var(--accent-primary);
-  box-shadow: 0 0 12px var(--accent-glow);
+  background: var(--pastel-green-dark);
 }
 
-/* Experience card */
+/* Experience card - handdrawn wobbly */
 .card {
   background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  border: 3px solid var(--border-sketch);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   padding: 28px 32px;
-  transition: all var(--transition-slow);
+  box-shadow: 4px 4px 0px var(--border-sketch);
+  transition: all var(--transition-fast);
+  filter: url(#crayon-sketch);
 }
 
 .card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glass-hover);
-  box-shadow: var(--shadow-glow);
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px var(--border-sketch);
 }
+
+/* Alternating card background pastels */
+.cardYellow { background-color: var(--pastel-yellow); }
+.cardBlue { background-color: var(--pastel-blue); }
+.cardGreen { background-color: var(--pastel-green); }
+.cardPink { background-color: var(--pastel-pink); }
 
 /* Card header */
 .cardHeader {
@@ -119,11 +115,12 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
 .title {
+  font-family: var(--font-crayon);
   font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
@@ -131,8 +128,9 @@
 }
 
 .period {
-  font-family: var(--font-mono);
+  font-family: var(--font-crayon);
   font-size: 13px;
+  font-weight: 700;
   color: var(--text-muted);
   white-space: nowrap;
   flex-shrink: 0;
@@ -144,14 +142,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   flex-wrap: wrap;
 }
 
 .company {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--accent-light);
+  font-weight: 700;
+  color: var(--accent-primary);
 }
 
 .client {
@@ -168,61 +166,53 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  font-family: var(--font-crayon);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.1);
-  border: 1px solid rgba(52, 211, 153, 0.2);
-  border-radius: 20px;
+  letter-spacing: 0.5px;
+  color: var(--pastel-green-dark);
+  background: var(--bg-card);
+  border: 2px solid var(--border-sketch);
+  border-radius: 255px 8px 225px 8px/8px 225px 8px 255px;
   padding: 3px 12px;
 }
 
 .badgeDot {
   width: 6px;
   height: 6px;
-  background: #34d399;
+  background: var(--pastel-green-dark);
   border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
 }
 
 /* Bullets */
 .bullets {
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .bullets li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 24px;
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .bullets li:last-child {
   margin-bottom: 0;
 }
 
-/* Accent triangle marker */
+/* Accent paw marker */
 .bullets li::before {
-  content: '';
+  content: '🐾';
   position: absolute;
-  left: 2px;
-  top: 9px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid var(--accent-primary);
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
+  left: 0;
+  top: 2px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 /* Tech stack pills */
@@ -234,20 +224,22 @@
 
 .pill {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 20px;
-  padding: 4px 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 2px solid var(--border-sketch);
+  border-radius: 255px 10px 225px 10px/10px 225px 10px 255px;
+  padding: 4px 12px;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  box-shadow: 2px 2px 0px var(--border-sketch);
 }
 
 .pill:hover {
-  color: var(--accent-light);
-  border-color: var(--border-glass-hover);
-  background: rgba(37, 99, 235, 0.08);
+  color: var(--text-primary);
+  background: var(--pastel-yellow);
+  box-shadow: 3px 3px 0px var(--border-sketch);
+  transform: translate(-1px, -1px);
 }
 
 /* Responsive */
@@ -257,13 +249,13 @@
   }
 
   .timeline::before {
-    left: 3px;
+    left: 4px;
   }
 
   .dot {
-    left: -28px;
-    width: 10px;
-    height: 10px;
+    left: -33px;
+    width: 14px;
+    height: 14px;
     top: 24px;
   }
 
@@ -277,7 +269,7 @@
   }
 
   .title {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .period {

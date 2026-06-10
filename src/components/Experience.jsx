@@ -18,6 +18,13 @@ const slideIn = {
   },
 };
 
+const cardColors = [
+  styles.cardYellow,
+  styles.cardBlue,
+  styles.cardGreen,
+  styles.cardPink
+];
+
 export default function Experience() {
   return (
     <motion.section
@@ -37,56 +44,59 @@ export default function Experience() {
         </motion.h2>
 
         <div className={styles.timeline}>
-          {experience.map((job) => (
-            <motion.div
-              key={job.period}
-              className={styles.entry}
-              variants={slideIn}
-            >
-              <div
-                className={`${styles.dot} ${job.current ? styles.dotCurrent : ''}`}
-              />
+          {experience.map((job, index) => {
+            const colorClass = cardColors[index % cardColors.length];
+            return (
+              <motion.div
+                key={job.period}
+                className={styles.entry}
+                variants={slideIn}
+              >
+                <div
+                  className={`${styles.dot} ${job.current ? styles.dotCurrent : ''}`}
+                />
 
-              <div className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <h3 className={styles.title}>{job.title}</h3>
-                  <span className={styles.period}>{job.period}</span>
-                </div>
+                <div className={`${styles.card} ${colorClass}`}>
+                  <div className={styles.cardHeader}>
+                    <h3 className={styles.title}>{job.title}</h3>
+                    <span className={styles.period}>{job.period}</span>
+                  </div>
 
-                <div className={styles.companyRow}>
-                  <span className={styles.company}>{job.company}</span>
-                  {(job.client || job.type) && (
-                    <>
-                      <span className={styles.separator}>·</span>
-                      <span className={styles.client}>
-                        {[job.client, job.type].filter(Boolean).join(' — ')}
+                  <div className={styles.companyRow}>
+                    <span className={styles.company}>{job.company}</span>
+                    {(job.client || job.type) && (
+                      <>
+                        <span className={styles.separator}>·</span>
+                        <span className={styles.client}>
+                          {[job.client, job.type].filter(Boolean).join(' — ')}
+                        </span>
+                      </>
+                    )}
+                    {job.current && (
+                      <span className={styles.badge}>
+                        <span className={styles.badgeDot} />
+                        Current
                       </span>
-                    </>
-                  )}
-                  {job.current && (
-                    <span className={styles.badge}>
-                      <span className={styles.badgeDot} />
-                      Current
-                    </span>
-                  )}
-                </div>
+                    )}
+                  </div>
 
-                <ul className={styles.bullets}>
-                  {job.bullets.map((bullet, i) => (
-                    <li key={i}>{bullet}</li>
-                  ))}
-                </ul>
+                  <ul className={styles.bullets}>
+                    {job.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
 
-                <div className={styles.techStack}>
-                  {job.tech.map((tech) => (
-                    <span key={tech} className={styles.pill}>
-                      {tech}
-                    </span>
-                  ))}
+                  <div className={styles.techStack}>
+                    {job.tech.map((tech) => (
+                      <span key={tech} className={styles.pill}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </motion.section>

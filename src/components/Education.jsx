@@ -22,6 +22,11 @@ const langDotCount = {
   English: 4,
 };
 
+const cardColors = [
+  styles.cardPink,
+  styles.cardGreen
+];
+
 function Education() {
   return (
     <section id="education" className={styles.section}>
@@ -41,18 +46,21 @@ function Education() {
             </div>
 
             <div className={styles.eduCards}>
-              {education.map((edu) => (
-                <div key={edu.degree} className={styles.eduCard}>
-                  <div className={styles.eduIcon}>
-                    <FiAward />
+              {education.map((edu, index) => {
+                const colorClass = cardColors[index % cardColors.length];
+                return (
+                  <div key={edu.degree} className={`${styles.eduCard} ${colorClass}`}>
+                    <div className={styles.eduIcon}>
+                      <FiAward />
+                    </div>
+                    <h3 className={styles.eduDegree}>{edu.degree}</h3>
+                    <p className={styles.eduType}>{edu.type}</p>
+                    <p className={styles.eduMeta}>
+                      {edu.school} · {edu.period}
+                    </p>
                   </div>
-                  <h3 className={styles.eduDegree}>{edu.degree}</h3>
-                  <p className={styles.eduType}>{edu.type}</p>
-                  <p className={styles.eduMeta}>
-                    {edu.school} · {edu.period}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 

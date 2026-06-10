@@ -7,7 +7,7 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <p className={styles.copyright}>© 2026 Estanislao Córdoba</p>
-        <p className={styles.builtWith}>Built with React + Vite</p>
+        <p className={styles.builtWith}>Built with React + Vite 🐾</p>
         <div className={styles.socials}>
           <a
             href={personalInfo.linkedin}

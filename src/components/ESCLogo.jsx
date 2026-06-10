@@ -7,35 +7,15 @@ export default function ESCLogo({ height = 36, ...props }) {
       viewBox="0 0 160 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: 'pointer', filter: 'url(#crayon-sketch)' }}
       {...props}
     >
-      <defs>
-        {/* Gradients */}
-        <linearGradient id="esc-grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2563eb" />
-          <stop offset="100%" stopColor="#7c3aed" />
-        </linearGradient>
-        <linearGradient id="esc-grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#60a5fa" />
-          <stop offset="100%" stopColor="#a78bfa" />
-        </linearGradient>
-        {/* Glow Filter */}
-        <filter id="esc-glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-
-      {/* Logo Icon: Stylized Terminal Bracket & Monogram */}
+      {/* Logo Icon: Hand-drawn Terminal Bracket & Monogram */}
       <g transform="translate(4, 2)">
-        {/* Left Bracket < */}
+        {/* Left Bracket < (drawn with slight wobble) */}
         <path
-          d="M 12 8 L 4 18 L 12 28"
-          stroke="url(#esc-grad-primary)"
+          d="M 11 8 C 8 12 5 15 3 18 C 5 21 8 24 11 28"
+          stroke="#597c56"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -43,17 +23,16 @@ export default function ESCLogo({ height = 36, ...props }) {
 
         {/* Diagonal Slash / */}
         <path
-          d="M 20 6 L 14 30"
-          stroke="#f8fafc"
+          d="M 18 6 C 17 14 15 22 13 30"
+          stroke="#c07c65"
           strokeWidth="3.5"
           strokeLinecap="round"
-          filter="url(#esc-glow)"
         />
 
         {/* Right Bracket > */}
         <path
-          d="M 22 8 L 30 18 L 22 28"
-          stroke="url(#esc-grad-primary)"
+          d="M 20 8 C 23 12 26 15 28 18 C 26 21 23 24 20 28"
+          stroke="#597c56"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -63,12 +42,12 @@ export default function ESCLogo({ height = 36, ...props }) {
       {/* Logo Text: ESC */}
       <text
         x="44"
-        y="22"
-        fill="#f8fafc"
-        fontFamily="var(--font-sans)"
+        y="21"
+        fill="#4a3f3b"
+        fontFamily="var(--font-crayon)"
         fontSize="21"
-        fontWeight="800"
-        letterSpacing="0.08em"
+        fontWeight="700"
+        letterSpacing="0.05em"
       >
         ESC
       </text>
@@ -77,11 +56,11 @@ export default function ESCLogo({ height = 36, ...props }) {
       <text
         x="45"
         y="33"
-        fill="url(#esc-grad-accent)"
-        fontFamily="var(--font-mono)"
-        fontSize="9"
-        fontWeight="600"
-        letterSpacing="0.18em"
+        fill="#746762"
+        fontFamily="var(--font-sans)"
+        fontSize="10"
+        fontWeight="700"
+        letterSpacing="0.1em"
       >
         C# & .NET
       </text>
