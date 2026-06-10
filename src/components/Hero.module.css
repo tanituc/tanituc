@@ -278,6 +278,7 @@
 @media (max-width: 860px) {
   .hero {
     padding-top: 120px;
+    padding-bottom: 48px; /* room so content doesn't sit on the very edge */
   }
 
   .container {
@@ -304,5 +305,18 @@
   .btnSecondary {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Hide scroll indicator on mobile — it overlaps with the cat spawner button
+     and touch users don't need a "scroll" hint */
+  .scrollIndicator {
+    display: none;
+  }
+
+  /* Center the cat spawner on mobile */
+  .catSpawnerWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
