@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Estanislao Sebastián Córdoba — CV / Resume (Senior Backend Developer)" />
+  <title>Estanislao Córdoba — Curriculum Vitae</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Nunito:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Design System CSS variables matching main app */
+    :root {
+      --bg-primary: #fcfbf7;
+      --bg-secondary: #f6f3eb;
+      --bg-card: #ffffff;
+      --border-sketch: #4a3f3b;
+      
+      --accent-primary: #3b5a37; /* Darker forest green */
+      --accent-secondary: #ad6249; /* Darker terracotta */
+      
+      --pastel-green: #eaf1e8;
+      --pastel-yellow: #fef5e4;
+      --pastel-blue: #e6f0f5;
+      --pastel-pink: #fdf0eb;
+
+      --text-primary: #4a3f3b;
+      --text-secondary: #6e5e58;
+      --text-muted: #8c7b74;
+      
+      --font-sans: 'Nunito', 'Quicksand', -apple-system, sans-serif;
+      --font-crayon: 'Fuzzy Bubbles', cursive;
+      --font-mono: 'Quicksand', monospace;
+    }
+
+    /* Print Color Adjustments */
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #f1ede4;
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: var(--accent-secondary);
+      text-decoration: underline;
+    }
+
+    /* Page container */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 30px auto;
+      padding: 18mm 15mm 15mm 15mm;
+      background-color: var(--bg-primary);
+      border: 3px solid var(--border-sketch);
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      box-shadow: 8px 8px 0px var(--border-sketch);
+      position: relative;
+      filter: url(#crayon-sketch);
+      overflow: hidden;
+    }
+
+    /* Header Styling */
+    .cv-header {
+      border-bottom: 3px dashed var(--border-sketch);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .header-name {
+      font-family: var(--font-crayon);
+      font-size: 32px;
+      margin: 0 0 5px 0;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .header-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-family: var(--font-crayon);
+      font-size: 20px;
+      margin: 0;
+      color: var(--accent-primary);
+    }
+
+    .header-subtitle {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      color: var(--accent-secondary);
+      font-weight: 700;
+      margin-left: 8px;
+    }
+
+    .paw-stamp {
+      font-size: 24px;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      transform: rotate(15deg);
+    }
+
+    /* Layout Columns */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 20px;
+      height: calc(100% - 110px);
+    }
+
+    .col-main {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .col-side {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Sections */
+    .section-heading {
+      font-family: var(--font-crayon);
+      font-size: 18px;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 2px solid var(--border-sketch);
+      padding-bottom: 3px;
+    }
+
+    .summary-text {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .summary-text strong {
+      color: var(--accent-secondary);
+      font-weight: 700;
+      border-bottom: 1.5px dashed var(--accent-secondary);
+    }
+
+    /* Experience Items */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .experience-item {
+      position: relative;
+      padding-left: 14px;
+      border-left: 2.5px solid var(--accent-primary);
+    }
+
+    .experience-item.current {
+      border-left-color: var(--accent-secondary);
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -6.5px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background-color: var(--bg-primary);
+      border: 2px solid var(--accent-primary);
+      border-radius: 50%;
+    }
+
+    .experience-item.current::before {
+      border-color: var(--accent-secondary);
+      background-color: var(--pastel-pink);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+
+    .exp-title {
+      font-family: var(--font-crayon);
+      font-size: 14px;
+      margin: 0;
+      color: var(--text-primary);
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .exp-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .exp-meta strong {
+      color: var(--text-primary);
+    }
+
+    .exp-type {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .exp-bullets {
+      margin: 0 0 8px 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .exp-bullets li {
+      margin-bottom: 3px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tech-tags span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 1px 5px;
+      border: 1.5px solid var(--border-sketch);
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Side Cards */
+    .side-card {
+      border: 2px solid var(--border-sketch);
+      border-radius: 15px 5px 15px 5px / 5px 15px 5px 15px;
+      padding: 12px;
+      box-shadow: 3px 3px 0px var(--border-sketch);
+    }
+
+    .pastel-yellow { background-color: var(--pastel-yellow); }
+    .pastel-green { background-color: var(--pastel-green); }
+    .pastel-blue { background-color: var(--pastel-blue); }
+    .pastel-pink { background-color: var(--pastel-pink); }
+
+    .card-heading {
+      font-family: var(--font-crayon);
+      font-size: 13.5px;
+      margin: 0 0 8px 0;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1.5px dashed var(--border-sketch);
+      padding-bottom: 3px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 11.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      color: var(--text-secondary);
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .visa-badge {
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-top: 4px;
+      border-top: 1px dotted var(--border-sketch);
+      padding-top: 4px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      font-size: 10.5px;
+      background-color: rgba(255, 255, 255, 0.6);
+      color: var(--text-primary);
+      padding: 2px 6px;
+      border: 1px solid var(--border-sketch);
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .education-item {
+      margin-bottom: 8px;
+    }
+
+    .education-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-degree {
+      font-weight: bold;
+      font-size: 12px;
+      color: var(--text-primary);
+      margin: 0 0 2px 0;
+    }
+
+    .edu-meta {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .lang-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 11.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lang-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lang-level {
+      color: var(--text-secondary);
+      font-size: 10.5px;
+    }
+
+    .relocation-text {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Actions Header (No Print) */
+    .actions-bar {
+      width: 210mm;
+      margin: 20px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .btn {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border-sketch);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-family: var(--font-crayon);
+      font-size: 14px;
+      color: var(--text-primary);
+      cursor: pointer;
+      box-shadow: 3px 3px 0px var(--border-sketch);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--border-sketch);
+      background-color: var(--pastel-yellow);
+    }
+
+    .btn-print {
+      background-color: var(--pastel-green);
+    }
+
+    /* Media query print overrides */
+    @media print {
+      body {
+        background-color: #ffffff;
+        color: var(--text-primary);
+        margin: 0;
+        padding: 0;
+      }
+
+      .actions-bar {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        filter: none !important; /* Prevents blurry text in PDF generation */
+        width: 210mm;
+        height: 297mm;
+        page-break-after: always;
+      }
+
+      .side-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation Actions Bar -->
+  <div class="actions-bar no-print">
+    <a href="/" class="btn">🏠 Home</a>
+    <button onclick="window.print()" class="btn btn-print">🖨️ Print / Save to PDF</button>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="page" id="page-1">
+    <div class="cv-header">
+      <div class="paw-stamp">🐾</div>
+      <h1 class="header-name">Estanislao Sebastián Córdoba</h1>
+      <div class="header-title-row">
+        <h2 class="header-title">Senior Backend Developer <span class="header-subtitle">.NET & C#</span></h2>
+      </div>
+    </div>
+
+    <div class="cv-grid">
+      <div class="col-main">
+        <!-- Summary -->
+        <section>
+          <h3 class="section-heading">🐾 Professional Summary</h3>
+          <p class="summary-text">
+            Senior Backend Developer with <strong>7+ years</strong> of experience building <strong>enterprise-grade</strong> applications using C#, .NET, and SQL. Proven expertise in modernizing legacy systems (.NET Framework 4.8) to <strong>cloud-native</strong> architectures (<strong>.NET 10</strong>) with Docker, Azure, and microservices. Currently driving platform modernization at a leading U.S. insurance carrier, collaborating daily with international stakeholders in English. Actively seeking relocation to the <strong>Nordic & Baltic region</strong> after visiting Estonia, Lithuania, Latvia, Finland, and Sweden.
+          </p>
+        </section>
+
+        <!-- Experience 1 -->
+        <section class="experience-list">
+          <h3 class="section-heading">🐾 Professional Experience</h3>
+          
+          <div class="experience-item current">
+            <div class="exp-header">
+              <h4 class="exp-title">Senior Backend Developer</h4>
+              <span class="exp-period">Feb 2023 — Present</span>
+            </div>
+            <div class="exp-meta">
+              <strong>JBKnowledge</strong> · Contractor for Safety National (U.S. Insurance Carrier) <span class="exp-type">(Remote from AR)</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Architect and maintain backend applications supporting enterprise insurance, managing legacy (.NET Framework 4.8) and modern (.NET 10) services.</li>
+              <li>Lead monolithic migrations to cloud-native microservices using .NET 10, Docker, and Azure, following Clean Architecture.</li>
+              <li>Design event-driven messaging patterns (queues/topics) for decoupled service communication.</li>
+              <li>Build and maintain CI/CD pipelines in Azure DevOps for automated builds, tests, and container deployment.</li>
+              <li>Collaborate daily in English with U.S.-based stakeholders in daily standups and sprint planning.</li>
+              <li>Ensure high-quality Agile/Scrum deliverables via code reviews and API contracts.</li>
+            </ul>
+            <div class="tech-tags">
+              <span>C#</span><span>.NET 10</span><span>.NET Framework 4.8</span><span>Docker</span><span>Azure</span><span>Azure DevOps</span><span>SQL Server</span><span>REST APIs</span><span>Microservices</span><span>Clean Architecture</span><span>Event-Driven</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-side">
+        <!-- Contact Details -->
+        <div class="side-card pastel-yellow">
+          <h4 class="card-heading">Contact Details</h4>
+          <ul class="contact-list">
+            <li>📧 <a href="mailto:cordobaestanislaos@gmail.com">cordobaestanislaos@gmail.com</a></li>
+            <li>🔗 <a href="https://www.linkedin.com/in/estanislaocordoba/" target="_blank">linkedin.com/in/estanislaocordoba</a></li>
+            <li>🐙 <a href="https://github.com/tanituc" target="_blank">github.com/tanituc</a></li>
+            <li>📍 Tucumán, Argentina</li>
+            <li class="visa-badge">🛂 Visa sponsorship required · Available immediately</li>
+          </ul>
+        </div>
+
+        <!-- Skills Part 1 -->
+        <div class="side-card pastel-green">
+          <h4 class="card-heading">Backend & Databases</h4>
+          <div class="skills-list">
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">.NET 10</span>
+            <span class="skill-tag">.NET 4.8</span>
+            <span class="skill-tag">ASP.NET Core</span>
+            <span class="skill-tag">EF Core</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">T-SQL</span>
+            <span class="skill-tag">DB Design</span>
+            <span class="skill-tag">Query Optimization</span>
+          </div>
+        </div>
+
+        <!-- Skills Part 2 -->
+        <div class="side-card pastel-blue">
+          <h4 class="card-heading">Architecture & DevOps</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Clean Architecture</span>
+            <span class="skill-tag">Event-Driven</span>
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">GraphQL</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+            <span class="skill-tag">Azure DevOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page-2">
+    <div class="cv-header">
+      <div class="paw-stamp">🐾</div>
+      <h1 class="header-name">Estanislao Sebastián Córdoba</h1>
+      <div class="header-title-row">
+        <h2 class="header-title">Senior Backend Developer <span class="header-subtitle">.NET & C#</span></h2>
+      </div>
+    </div>
+
+    <div class="cv-grid">
+      <div class="col-main">
+        <!-- Experience Continued -->
+        <section class="experience-list">
+          <h3 class="section-heading">🐾 Experience (Continued)</h3>
+          
+          <div class="experience-item">
+            <div class="exp-header">
+              <h4 class="exp-title">Full Stack Developer</h4>
+              <span class="exp-period">Dec 2021 — Jan 2023</span>
+            </div>
+            <div class="exp-meta">
+              <strong>JBKnowledge / Integramedia</strong> · Internal Projects <span class="exp-type">(Remote)</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Developed and maintained full-stack enterprise applications using C#/.NET backend and React frontend.</li>
+              <li>Optimized database queries and API performance, improving system responsiveness across platforms.</li>
+              <li>Implemented RESTful APIs consumed by multiple client applications with consistent data flow.</li>
+            </ul>
+            <div class="tech-tags">
+              <span>C#</span><span>.NET</span><span>SQL Server</span><span>React</span><span>JavaScript</span><span>REST APIs</span><span>Azure DevOps</span><span>Git</span>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <h4 class="exp-title">Full Stack .NET & React Developer</h4>
+              <span class="exp-period">Apr 2021 — Nov 2021</span>
+            </div>
+            <div class="exp-meta">
+              <strong>Ministry of Education, Tucumán</strong> <span class="exp-type">(Government Sector)</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built full-stack applications integrating .NET backend with React UI for public education management.</li>
+              <li>Developed RESTful APIs serving platforms used across the provincial school network.</li>
+            </ul>
+            <div class="tech-tags">
+              <span>C#</span><span>.NET</span><span>React</span><span>JavaScript</span><span>SQL Server</span><span>REST APIs</span>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <h4 class="exp-title">UI/UX Designer & React Developer</h4>
+              <span class="exp-period">May 2019 — Jan 2020</span>
+            </div>
+            <div class="exp-meta">
+              <strong>elTucumano Newspaper</strong> <span class="exp-type">(Media Industry, Tucumán)</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Developed React frontend components and designed UI/UX mockups for a regional news platform.</li>
+              <li>Improved content delivery through responsive design, Material-UI, and performance optimization.</li>
+            </ul>
+            <div class="tech-tags">
+              <span>React</span><span>JavaScript</span><span>Material-UI</span><span>HTML5</span><span>CSS3</span><span>Adobe XD</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-side">
+        <!-- Skills Part 3 -->
+        <div class="side-card pastel-pink">
+          <h4 class="card-heading">Frontend & Tools</h4>
+          <div class="skills-list">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Material-UI</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">GitLab</span>
+          </div>
+        </div>
+
+        <!-- Skills Part 4 -->
+        <div class="side-card pastel-yellow">
+          <h4 class="card-heading">Methodologies</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Scrum/Agile</span>
+            <span class="skill-tag">Code Review</span>
+            <span class="skill-tag">User Story Refinement</span>
+            <span class="skill-tag">Sprint Planning</span>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="side-card pastel-green">
+          <h4 class="card-heading">Education</h4>
+          <div class="education-item">
+            <p class="edu-degree">Video Games & Simulations</p>
+            <p class="edu-meta">Technician · 2017 — Present</p>
+          </div>
+          <div class="education-item">
+            <p class="edu-degree">Computer Programming</p>
+            <p class="edu-meta">Completed coursework · 2016 — 2017</p>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="side-card pastel-blue">
+          <h4 class="card-heading">Languages</h4>
+          <ul class="lang-list">
+            <li class="lang-item-row">
+              <span>🇦🇷 Spanish</span>
+              <span class="lang-level">Native</span>
+            </li>
+            <li class="lang-item-row">
+              <span>🇬🇧 English</span>
+              <span class="lang-level">Professional (B2+)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Relocation -->
+        <div class="side-card pastel-pink">
+          <h4 class="card-heading">Relocation</h4>
+          <p class="relocation-text">
+            📍 Open to relocation. Actively seeking opportunities in the Nordic & Baltic region.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG Crayon displacement filters -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
+    <defs>
+      <filter id="crayon-sketch" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+</body>
+</html>

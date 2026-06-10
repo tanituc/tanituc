@@ -29,12 +29,13 @@ function DownloadCTA() {
 
         <div className={styles.buttons}>
           <a
-            href={`/${personalInfo.cvFileName}`}
-            download
+            href="/cv.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.btnPrimary}
           >
             <FiDownload />
-            <span>Download CV</span>
+            <span>View / Print CV</span>
           </a>
           <a
             href={`mailto:${personalInfo.email}`}

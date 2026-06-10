@@ -66,12 +66,13 @@ export default function Hero({ isDark, onSpawnCat, catCount }) {
           {/* CTA buttons */}
           <motion.div className={styles.actions} variants={fadeUp}>
             <a
-              href={`/${personalInfo.cvFileName}`}
-              download
+              href="/cv.html"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.btnPrimary}
             >
               <FiDownload size={16} />
-              <span>Download CV</span>
+              <span>View / Print CV</span>
             </a>
 
             <a

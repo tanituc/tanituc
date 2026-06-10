@@ -5,6 +5,8 @@ export default function CatSpawner({ onSpawn, catCount = 0 }) {
   const [ripple, setRipple] = useState(false);
   const [popKey, setPopKey] = useState(null); // triggers the "+1 🐾" animation
   const popTimer = useRef(null);
+  
+  const [showTooltip, setShowTooltip] = useState(true);
 
   const handleClick = useCallback(() => {
     setRipple(true);
@@ -16,11 +18,29 @@ export default function CatSpawner({ onSpawn, catCount = 0 }) {
     setPopKey(key);
     popTimer.current = setTimeout(() => setPopKey(null), 800);
 
+    // Hide tooltip once clicked
+    if (showTooltip) {
+      setShowTooltip(false);
+    }
+
     onSpawn?.();
-  }, [onSpawn]);
+  }, [onSpawn, showTooltip]);
+
+  const dismissTooltip = (e) => {
+    e.stopPropagation();
+    setShowTooltip(false);
+  };
 
   return (
     <div className={styles.wrapper}>
+      {showTooltip && (
+        <div className={styles.tooltip} onClick={dismissTooltip}>
+          <span>Click to summon a cat! 🐾</span>
+          <span className={styles.tooltipClose}>×</span>
+          <div className={styles.tooltipArrow} />
+        </div>
+      )}
+
       <button
         id="spawn-cat-btn"
         className={`${styles.btn} ${ripple ? styles.ripple : ''}`}

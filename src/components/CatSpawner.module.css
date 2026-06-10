@@ -154,3 +154,54 @@
   from { opacity: 0; transform: translateX(-6px); }
   to   { opacity: 1; transform: translateX(0); }
 }
+
+/* Tooltip/hint styling */
+.tooltip {
+  position: absolute;
+  bottom: 70px; /* Above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pastel-pink, #fdf0eb);
+  color: var(--text-primary, #4a3f3b);
+  border: 2px solid var(--border-sketch, #4a3f3b);
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-family: var(--font-crayon, cursive);
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0px var(--border-sketch, #4a3f3b);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: tooltipFloat 3s ease-in-out infinite;
+}
+
+.tooltipClose {
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.tooltipClose:hover {
+  opacity: 1;
+}
+
+.tooltipArrow {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: var(--pastel-pink, #fdf0eb);
+  border-right: 2px solid var(--border-sketch, #4a3f3b);
+  border-bottom: 2px solid var(--border-sketch, #4a3f3b);
+}
+
+@keyframes tooltipFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-5px); }
+}
