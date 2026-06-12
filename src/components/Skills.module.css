@@ -94,6 +94,10 @@
   margin-bottom: 16px;
 }
 
+:global([data-theme="dark"]) .cardIcon {
+  background: var(--bg-secondary);
+}
+
 .cardTitle {
   font-family: var(--font-crayon);
   font-size: 17px;

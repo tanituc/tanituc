@@ -77,6 +77,10 @@
   flex-shrink: 0;
 }
 
+:global([data-theme="dark"]) .catSprite {
+  mix-blend-mode: screen;
+}
+
 .label {
   font-size: 15px;
   font-weight: 800;
@@ -112,6 +116,10 @@
 .btn:hover .catSprite {
   background-position: 0px 0px;
   mix-blend-mode: multiply;
+}
+
+:global([data-theme="dark"]) .btn:hover .catSprite {
+  mix-blend-mode: screen;
 }
 
 /* Flying "+1 🐾" pop counter */

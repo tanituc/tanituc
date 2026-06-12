@@ -66,6 +66,10 @@
   box-shadow: 1px 1px 0px var(--border-sketch);
 }
 
+:global([data-theme="dark"]) .eduIcon {
+  background: var(--bg-secondary);
+}
+
 .eduDegree {
   font-family: var(--font-crayon);
   font-size: 17px;
@@ -137,6 +141,10 @@
   background: #ffffff;
   border: 2px solid var(--border-sketch);
   transition: background var(--transition-fast);
+}
+
+:global([data-theme="dark"]) .dot {
+  background: var(--bg-primary);
 }
 
 .dotFilled {

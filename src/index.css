@@ -65,32 +65,35 @@
   --bg-secondary: #121219; /* Deeper night shadow */
   --bg-card: #22222d; /* Midnight card wood */
   --bg-card-hover: #262635;
-  --border-sketch: #ece6df; /* Soft cream border lines */
+  --border-sketch: #e2dad0; /* Softer warm sketch outline */
   
-  --accent-primary: #7da079; /* Soft forest green (lighter for dark background) */
-  --accent-secondary: #cd8673; /* Terracotta */
-  --accent-light: #9abf96;
-  --accent-glow: rgba(125, 160, 121, 0.2);
-  --accent-gradient: linear-gradient(135deg, #7da079 0%, #cd8673 100%);
-  --accent-gradient-soft: linear-gradient(135deg, rgba(125, 160, 121, 0.1) 0%, rgba(205, 134, 115, 0.1) 100%);
+  --accent-primary: #86d1a1; /* Vibrant, glowing mint-sage green */
+  --accent-secondary: #ff9e7d; /* Soft glowing terracotta-peach */
+  --accent-light: #a4e5bd;
+  --accent-glow: rgba(134, 209, 161, 0.25);
+  --accent-gradient: linear-gradient(135deg, #86d1a1 0%, #ff9e7d 100%);
+  --accent-gradient-soft: linear-gradient(135deg, rgba(134, 209, 161, 0.12) 0%, rgba(255, 158, 125, 0.12) 100%);
 
-  /* Night Pastels - deep, cozy night shades */
-  --pastel-green: #243528;
-  --pastel-green-dark: #7da079;
-  --pastel-yellow: #3c321d; /* warm lantern amber */
-  --pastel-yellow-dark: #dfa857;
-  --pastel-blue: #1d2b35;
-  --pastel-blue-dark: #6fa0bc;
-  --pastel-pink: #362220;
-  --pastel-pink-dark: #cd8673;
+  /* Night Pastels - deep, rich cozy night shades (vibrant, not muddy) */
+  --pastel-green: #1e3025; /* Cozy rich dark pine */
+  --pastel-green-dark: #86d1a1; /* Glowing mint */
+  
+  --pastel-yellow: #443b2a; /* Warm soft sand/wheat glow */
+  --pastel-yellow-dark: #ffd36e; /* Sweet amber yellow */
+  
+  --pastel-blue: #1b2434; /* Starry night navy blue */
+  --pastel-blue-dark: #9bbbf2; /* Soft lavender-blue */
+  
+  --pastel-pink: #321e25; /* Cozy dark cherry-blossom/wine */
+  --pastel-pink-dark: #ff9e7d; /* Soft terracotta-peach */
 
-  --text-primary: #faf6f0; /* Warm soft cream */
-  --text-secondary: #beb5ad; /* Muted cocoa */
-  --text-muted: #8a7f76;
-  --text-accent: #7da079;
+  --text-primary: #f8f6f0; /* Warm soft cream */
+  --text-secondary: #c9c1b7; /* Muted warm sand/cocoa */
+  --text-muted: #948b81;
+  --text-accent: #86d1a1;
 
-  --shadow-card: 5px 5px 0px #ece6df;
-  --shadow-card-hover: 7px 7px 0px #ece6df;
+  --shadow-card: 5px 5px 0px #e2dad0;
+  --shadow-card-hover: 7px 7px 0px #e2dad0;
 
   color-scheme: dark;
 }
